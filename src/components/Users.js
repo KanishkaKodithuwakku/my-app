@@ -1,5 +1,7 @@
 import React, { useState, useReducer ,useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 
 const ACTIONS = {
   ADD_USER: "add-user",
@@ -60,28 +62,46 @@ const Users = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     //alert(user);
-    dispatch({type:'add-user', payload:user});
+    if(user !== '')
+      dispatch({ type: 'add-user', payload: user });
+      setUser('');
   };
+
+  const handleDeleteUser = (id) => { 
+    //alert(id);
+
+  }
 
 
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        className="d-flex justify-content-between align-items-center"
+      >
         <input
+          value={user}
           className="form-control"
           type="text"
           onChange={(e) => setUser(e.target.value)}
         />
-        <button className="btn btn-primary" type="submit">
-          Add New User
+        <button className="btn btn-primary ml-2" type="submit">
+          <FontAwesomeIcon icon={faUserPlus} />
         </button>
       </form>
 
       <ul className="list-group">
         {state.map((user) => (
-          <li key={user.id} className="list-group-item">
-            {user.name}
+          <li
+            key={user.id}
+            className="list-group-item  d-flex justify-content-between align-items-center"
+          >
+            {user.name}{" "}
+            <FontAwesomeIcon
+              icon={faTrashCan}
+              onClick={dispatch({ type: "remove-user", payload: user.id })}
+            />
           </li>
         ))}
       </ul>
