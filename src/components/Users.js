@@ -1,7 +1,9 @@
-import React, { useState, useReducer ,useEffect } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import TextInput from "./common/TextInput";
+import  Button  from "./common/Button";
 
 const ACTIONS = {
   ADD_USER: "add-user",
@@ -12,7 +14,6 @@ const ACTIONS = {
 function userReducer(state, action) {
   switch (action.type) {
     case ACTIONS.ADD_USER:
-
       console.log(action.payload);
 
       const newUser = {
@@ -22,16 +23,18 @@ function userReducer(state, action) {
         email: "kanishka@gmail.com",
       };
 
-    return [...state, newUser];
+      return [...state, newUser];
+    
+    case ACTIONS.REMOVE_USER:
+     return  state.filter((user) => user.id !== action.payload);
+    
 
-     
     default:
       return state;
   }
 }
 
 const Users = () => {
-
   const usersArray = [
     {
       id: uuidv4(),
@@ -52,7 +55,7 @@ const Users = () => {
       age: "35",
     },
   ];
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState("");
   const [state, dispatch] = useReducer(userReducer, usersArray);
 
   // useEffect(() => {
@@ -62,17 +65,15 @@ const Users = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     //alert(user);
-    if(user !== '')
-      dispatch({ type: 'add-user', payload: user });
-      setUser('');
+   if (user !== "") dispatch({ type: "add-user", payload: user });
+   setUser("");
   };
 
-  const handleDeleteUser = (id) => { 
+
+  const handleDeleteUser = (id) => {
     //alert(id);
-
-  }
-
-
+     dispatch({ type: "remove-user", payload:id });
+  };
 
   return (
     <>
@@ -80,18 +81,17 @@ const Users = () => {
         onSubmit={handleSubmit}
         className="d-flex justify-content-between align-items-center"
       >
-        <input
+        <TextInput
           value={user}
-          className="form-control"
-          type="text"
-          onChange={(e) => setUser(e.target.value)}
+          placeholder={`add Username`}
+          handleOnChange={(value) => setUser(value)}
         />
-        <button className="btn btn-primary ml-2" type="submit">
+        <Button addStyle={`ml-2`} btnColor="primary">
           <FontAwesomeIcon icon={faUserPlus} />
-        </button>
+        </Button>
       </form>
 
-      <ul className="list-group">
+      <ul className="list-group mt-2">
         {state.map((user) => (
           <li
             key={user.id}
@@ -100,7 +100,7 @@ const Users = () => {
             {user.name}{" "}
             <FontAwesomeIcon
               icon={faTrashCan}
-              onClick={dispatch({ type: "remove-user", payload: user.id })}
+              onClick={() => handleDeleteUser(user.id)}
             />
           </li>
         ))}
