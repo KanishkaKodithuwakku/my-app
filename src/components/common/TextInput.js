@@ -9,7 +9,7 @@ const TextInput = ({ value, type, placeholder, label, handleOnChange }) => {
         placeholder={placeholder}
         className="form-control"
         type={type}
-        onChange={(e) => handleOnChange(e.target.value)}
+        onChange={handleOnChange}
       />
     </>
   );

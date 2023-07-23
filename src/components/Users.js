@@ -90,7 +90,7 @@ const Users = () => {
         <TextInput
           value={user}
           placeholder={`Add User`}
-          handleOnChange={(value) => setUser(value)}
+          handleOnChange={(e) => setUser(e.target.value)}
         />
         <Button addStyle={`ml-2`} btnColor="primary">
           <FontAwesomeIcon icon={faUserPlus} />
