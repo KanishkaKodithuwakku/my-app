@@ -1,9 +1,13 @@
 import React, { useState, useReducer, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashCan, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTrashCan,
+  faUserPlus,
+  faBan,
+} from "@fortawesome/free-solid-svg-icons";
 import TextInput from "./common/TextInput";
-import  Button  from "./common/Button";
+import Button from "./common/Button";
 
 const ACTIONS = {
   ADD_USER: "add-user",
@@ -21,14 +25,19 @@ function userReducer(state, action) {
         name: action.payload,
         age: 90,
         email: "kanishka@gmail.com",
+        active: false,
       };
 
       return [...state, newUser];
-    
-    case ACTIONS.REMOVE_USER:
-     return  state.filter((user) => user.id !== action.payload);
-    
 
+    case ACTIONS.REMOVE_USER:
+      return state.filter((user) => user.id !== action.payload);
+    
+    case ACTIONS.UPDATE_USER:
+      return state.map((user) =>
+        user.id === action.payload ? { ...user, active: !user.active} : user
+      );
+    
     default:
       return state;
   }
@@ -41,18 +50,21 @@ const Users = () => {
       name: "John Doe",
       email: "johndoe@example.com",
       age: "25",
+      active: true,
     },
     {
       id: uuidv4(),
       name: "Jane Doe",
       email: "janedoe@example.com",
       age: "30",
+      active: true,
     },
     {
       id: uuidv4(),
       name: "Bob Smith",
       email: "bobsmith@example.com",
       age: "35",
+      active: true,
     },
   ];
   const [user, setUser] = useState("");
@@ -65,14 +77,8 @@ const Users = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     //alert(user);
-   if (user !== "") dispatch({ type: "add-user", payload: user });
-   setUser("");
-  };
-
-
-  const handleDeleteUser = (id) => {
-    //alert(id);
-     dispatch({ type: "remove-user", payload:id });
+    if (user !== "") dispatch({ type: "add-user", payload: user });
+    setUser("");
   };
 
   return (
@@ -83,7 +89,7 @@ const Users = () => {
       >
         <TextInput
           value={user}
-          placeholder={`add Username`}
+          placeholder={`Add User`}
           handleOnChange={(value) => setUser(value)}
         />
         <Button addStyle={`ml-2`} btnColor="primary">
@@ -97,11 +103,24 @@ const Users = () => {
             key={user.id}
             className="list-group-item  d-flex justify-content-between align-items-center"
           >
-            {user.name}{" "}
-            <FontAwesomeIcon
-              icon={faTrashCan}
-              onClick={() => handleDeleteUser(user.id)}
-            />
+            <span style={{ color: user.active ? "#000" : "#ccc" }}>
+              {user.name}
+            </span>
+            <div>
+              <FontAwesomeIcon
+                icon={faBan}
+                onClick={() =>
+                  dispatch({ type: "update-user", payload: user.id })
+                }
+              />
+              <FontAwesomeIcon
+                icon={faTrashCan}
+                onClick={() =>
+                  dispatch({ type: "remove-user", payload: user.id })
+                }
+                style={{ marginLeft: 4 }}
+              />
+            </div>
           </li>
         ))}
       </ul>
