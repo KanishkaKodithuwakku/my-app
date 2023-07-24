@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect, useReducer, useContext } from 'react';
 import httpClient from './utils/httpClient';
+import { usePlanetContext } from './utils/context';
 
 
 const initialState = {
@@ -45,7 +46,8 @@ function dataFetchReducer(state, action) {
 
 }
 
-const useFetch = url => {
+export const useFetch = url => {
+ 
   const [state, dispatch] = useReducer(dataFetchReducer, initialState);
 
   /** 
@@ -83,7 +85,8 @@ const useFetch = url => {
 }
 
 const App = () => {
-  const [loading, result, error] = useFetch('/planets');
+  // const [loading, result, error] = useFetch('/planets');
+  const { loading, result, error } = usePlanetContext();
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
   const people = result ? result : null;
