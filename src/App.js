@@ -1,13 +1,20 @@
 import './App.css';
+import TopNavBar from './Navbar';
+import Vans from './Vans';
+import Container from "react-bootstrap/Container";
+
 
 function App() {
   return (
-    <div className="App">
+    <Container>
+    
+        <TopNavBar/>
 
-      <h1>App</h1>
-  
-    </div>
+        <Vans />
+      
+    </Container>
   );
 }
 
 export default App;
+

@@ -1,0 +1,26 @@
+{
+  "vans": [
+    { "id": 1,"category":"1", "van_name": "Alfa Romeo AR6", "image":"/images/alfa-romeo-ar6.jpg", "weight": "1200kg", "price":"$5000" },
+    { "id": 2,"category":"1", "van_name": "GMC Safari", "image":"/images/gmc-safari.jpg", "weight": "1000kg", "price":"$6000" },
+    { "id": 3,"category":"2", "van_name": "Fiat 242", "image":"/images/fiat_242", "weight": "900kg", "price":"$4000" },
+    { "id": 4,"category":"3", "van_name": "Ford Galaxy", "image":"/images/ford-galaxy.jpg", "weight": "1250kg", "price":"$3000" },
+    { "id": 5,"category":"5", "van_name": "Ford Pronto", "image":"/images/ford-pronto.jpg", "weight": "110kg", "price":"$1500" },
+    { "id": 6,"category":"4", "van_name": "Ford Transit", "image":"/images/ford-transit.jpg", "weight": "1000kg", "price":"$6000" },
+    { "id": 7,"category":"6", "van_name": "Lancia Voyager", "image":"/images/lancia_voyager.jpg", "weight": "1400kg", "price":"$4500" },
+    { "id": 8,"category":"9", "van_name": "Renault Dokker", "image":"/images/renault-dokker.jpg", "weight": "2000kg", "price":"$5000" },
+    { "id": 9,"category":"7", "van_name": "SsangYong Istana", "image":"/images/ssangyong-Istana.jpg", "weight": "2300kg", "price":"$1900" },
+    { "id": 10,"category":"8", "van_name": "Toyota HiAce", "image":"/images/toyota-hiace.jpg", "weight": "2300kg", "price":"$1900" }
+  ],
+  "categories": [
+    { "id": 1, "category_name": "Cargo Van" },
+    { "id": 2, "category_name": "Passenger Van" },
+    { "id": 3, "category_name": "Minivan"},
+    { "id": 4, "category_name": "Camper Van" },
+    { "id": 5, "category_name": "Panel Van"},
+    { "id": 6, "category_name": "Box Van" },
+    { "id": 7, "category_name": "Refrigerated Van" },
+    { "id": 8, "category_name": "Flatbed Van" },
+    { "id": 9, "category_name": "Pickup Van" }
+  ],
+  "user": { "username": "Kanishka","password": "123456" }
+}
