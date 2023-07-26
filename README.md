@@ -1,6 +1,16 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+npx create-react-app my-app
+npm install bootstrap
+
+https://react-bootstrap.netlify.app/docs/getting-started/introduction
+npm install react-bootstrap bootstrap
+
+https://axios-http.com/docs/intro
+npm install axios
+
+https://www.npmjs.com/package/react-toastify?activeTab=readme
+npm i react-toastify
 
 ## Available Scripts
 
