@@ -1,26 +1,26 @@
 {
   "vans": [
-    { "id": 1,"category":"1", "van_name": "Alfa Romeo AR6", "image":"/images/alfa-romeo-ar6.jpg", "weight": "1200kg", "price":"$5000" },
-    { "id": 2,"category":"1", "van_name": "GMC Safari", "image":"/images/gmc-safari.jpg", "weight": "1000kg", "price":"$6000" },
-    { "id": 3,"category":"2", "van_name": "Fiat 242", "image":"/images/fiat_242", "weight": "900kg", "price":"$4000" },
-    { "id": 4,"category":"3", "van_name": "Ford Galaxy", "image":"/images/ford-galaxy.jpg", "weight": "1250kg", "price":"$3000" },
-    { "id": 5,"category":"5", "van_name": "Ford Pronto", "image":"/images/ford-pronto.jpg", "weight": "110kg", "price":"$1500" },
-    { "id": 6,"category":"4", "van_name": "Ford Transit", "image":"/images/ford-transit.jpg", "weight": "1000kg", "price":"$6000" },
-    { "id": 7,"category":"6", "van_name": "Lancia Voyager", "image":"/images/lancia_voyager.jpg", "weight": "1400kg", "price":"$4500" },
-    { "id": 8,"category":"9", "van_name": "Renault Dokker", "image":"/images/renault-dokker.jpg", "weight": "2000kg", "price":"$5000" },
-    { "id": 9,"category":"7", "van_name": "SsangYong Istana", "image":"/images/ssangyong-Istana.jpg", "weight": "2300kg", "price":"$1900" },
-    { "id": 10,"category":"8", "van_name": "Toyota HiAce", "image":"/images/toyota-hiace.jpg", "weight": "2300kg", "price":"$1900" }
+    { "id": 1,"category":1, "van_name": "Alfa Romeo AR6", "image":"/images/alfa-romeo-ar6.jpg", "weight": "1200kg", "price":"$5000","description":"The AR8 was based on the first generation Iveco Daily, and the AR6 was a rebadged first generation Fiat Ducato." },
+    { "id": 2,"category":1, "van_name": "GMC Safari", "image":"/images/gmc-safari.jpg", "weight": "1000kg", "price":"$6000","description":"Sold alongside the GMC Safari, the Astro was marketed in multiple configurations, including passenger minivan and cargo van." },
+    { "id": 3,"category":2, "van_name": "Fiat 242", "image":"/images/fiat_242.jpg", "weight": "900kg", "price":"$4000","description":"The Fiat 242 was a van which was produced by Fiat from 1974. Fiat 242. Fiat 242. Overview. Manufacturer, Fiat. Also called, Citroën C35." },
+    { "id": 4,"category":3, "van_name": "Ford Galaxy", "image":"/images/ford-galaxy.jpg", "weight": "1250kg", "price":"$3000","description":"The Ford Galaxy is a seven-seater car produced by Ford of Europe from June 1995 to April 2023." },
+    { "id": 5,"category":5, "van_name": "Ford Pronto", "image":"/images/ford-pronto.jpg", "weight": "110kg", "price":"$1500","description":"Ford Pronto - one of the models of cars manufactured by Ford. Ford Pronto received many good reviews of car owners for their consumer qualities." },
+    { "id": 6,"category":4, "van_name": "Ford Transit", "image":"/images/ford-transit.jpg", "weight": "1000kg", "price":"$6000","description":"The Ford Transit is a family of light commercial vehicles manufactured by the Ford Motor Company since 1965, primarily as a cargo van." },
+    { "id": 7,"category":6, "van_name": "Lancia Voyager", "image":"/images/lancia_voyager.jpg", "weight": "1400kg", "price":"$4500","description":"Since 2011, the Voyager is sold under the Lancia badge in Europe to strengthen the Chrysler-Lancia integration." },
+    { "id": 8,"category":9, "van_name": "Renault Dokker", "image":"/images/renault-dokker.jpg", "weight": "2000kg", "price":"$5000","description":"The Dacia Dokker is a panel van and leisure activity vehicle (LAV) built at the Renault factory in Tangier, Morocco." },
+    { "id": 9,"category":7, "van_name": "SsangYong Istana", "image":"/images/ssangyong-Istana.jpg", "weight": "2300kg", "price":"$1900","description":"The SsangYong Istana is a 2, 9, 12 and 15 seater minivan and minibus based on the Mercedes-Benz MB100 'Bus' variant." },
+    { "id": 10,"category":8, "van_name": "Toyota HiAce", "image":"/images/toyota-hiace.jpg", "weight": "2300kg", "price":"$1900","description":"The Toyota HiAce (Japanese: トヨタ・ハイエース, Hepburn: Toyota Haiēsu) (pronounced 'High Ace') is a light commercial vehicle produced by the Japanese" }
   ],
   "categories": [
-    { "id": 1, "category_name": "Cargo Van" },
-    { "id": 2, "category_name": "Passenger Van" },
-    { "id": 3, "category_name": "Minivan"},
-    { "id": 4, "category_name": "Camper Van" },
-    { "id": 5, "category_name": "Panel Van"},
-    { "id": 6, "category_name": "Box Van" },
-    { "id": 7, "category_name": "Refrigerated Van" },
-    { "id": 8, "category_name": "Flatbed Van" },
-    { "id": 9, "category_name": "Pickup Van" }
+    { "id": 1, "category_name": "Cargo Van","color":"#FFE17B" },
+    { "id": 2, "category_name": "Passenger Van","color":"#91C8E4" },
+    { "id": 3, "category_name": "Minivan","color":"#CD6688"},
+    { "id": 4, "category_name": "Camper Van","color":"#557A46" },
+    { "id": 5, "category_name": "Panel Van","color":"#7C9D96"},
+    { "id": 6, "category_name": "Box Van","color":"#D7BBF5" },
+    { "id": 7, "category_name": "Refrigerated Van","color":"#1D5D9B" },
+    { "id": 8, "category_name": "Flatbed Van","color":"#A78295" },
+    { "id": 9, "category_name": "Pickup Van","color":"#7895CB" }
   ],
   "user": { "username": "Kanishka","password": "123456" }
 }

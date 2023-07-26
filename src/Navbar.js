@@ -5,7 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 function TopNavBar() {
   return (
     <>
-      <Navbar bg="primary" data-bs-theme="dark">
+      <Navbar style={{ backgroundColor: "#BA704F" }}>
         <Container>
           <Navbar.Brand href="#home">VanLife</Navbar.Brand>
           <Nav className="me-auto">
