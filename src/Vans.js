@@ -7,7 +7,8 @@ import useFetch from "./utils/useFetch";
 import Badge from "react-bootstrap/Badge";
 import './van.css'
 import Spinner from "react-bootstrap/Spinner";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Vans = () => {
 
@@ -53,7 +54,10 @@ const {
 } = useFetch("/vans?category=" + selectedCategory);
     
     useEffect(() => { 
-        setVans(filterResult);
+
+        if (filterLoading)
+          toast.info("Please wait. processing...");
+        else setVans(filterResult);
         
 
     },[selectedCategory])
@@ -64,6 +68,7 @@ const {
 
   return (
     <>
+      <ToastContainer />
       {vansLoading && (
         <Spinner
           animation="grow"
