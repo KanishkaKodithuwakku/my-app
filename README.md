@@ -1,16 +1,16 @@
 # Getting Started with Create React App
 
-npx create-react-app my-app
-npm install bootstrap
+npx create-react-app my-app \
+npm install bootstrap 
 
-https://react-bootstrap.netlify.app/docs/getting-started/introduction
-npm install react-bootstrap bootstrap
+https://react-bootstrap.netlify.app/docs/getting-started/introduction \
+npm install react-bootstrap bootstrap 
 
-https://axios-http.com/docs/intro
-npm install axios
+https://axios-http.com/docs/intro \
+npm install axios 
 
-https://www.npmjs.com/package/react-toastify?activeTab=readme
-npm i react-toastify
+https://www.npmjs.com/package/react-toastify?activeTab=readme \
+npm i react-toastify 
 
 ## Available Scripts
 
@@ -19,10 +19,16 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
+
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+### `json-server --watch db.json --port 3004`
+
+Runs the Json server in the development mode PORT 3004.\
+https://www.npmjs.com/package/json-server
 
 ### `npm test`
 
