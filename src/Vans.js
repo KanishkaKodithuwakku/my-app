@@ -11,60 +11,49 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Vans = () => {
-
-    //states
+  //states
   const [categories, setCategories] = useState(null);
   const [vans, setVans] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-    //fetch hook
+  //fetch hook
   const {
     loading: categoryLoading,
     error: categoryError,
     result: categoryResult,
-    } = useFetch("/categories");
-    
-    //get categoruies
+  } = useFetch("/categories");
+  //get vans
+  const {
+    loading: vansLoading,
+    error: vansError,
+    result: vansResult,
+  } = useFetch("/vans");
+
+  //set categoruies
   useEffect(() => {
     if (categoryResult) {
       setCategories(categoryResult);
     }
   }, [categoryResult]);
 
-    //get vans
-  const {
-    loading: vansLoading,
-    error: vansError,
-    result: vansResult,
-    } = useFetch("/vans");
-    
   useEffect(() => {
     if (vansResult) {
       setVans(vansResult);
     }
   }, [vansResult]);
-    
-    //get filterd data
 
-    
-const {
-  loading: filterLoading,
-  error: filterError,
-  result: filterResult,
-} = useFetch("/vans?category=" + selectedCategory);
-    
-    useEffect(() => { 
+  //get filterd data
+  const {
+    loading: filterLoading,
+    error: filterError,
+    result: filterResult,
+  } = useFetch("/vans?category=" + selectedCategory);
 
-        if (filterLoading)
-          toast.info("Please wait. processing...");
-        else setVans(filterResult);
-        
+  useEffect(() => {
+    if (filterLoading) toast.info("Please wait. processing...");
+    else setVans(filterResult);
+  }, [selectedCategory]);
 
-    },[selectedCategory])
-
-    
-    
-   
 
   return (
     <>
