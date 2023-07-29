@@ -76,6 +76,7 @@ const useFetch = (url) => {
     resultData();
   }, [url])
 
-     return [state.loading, state.result, state.error];
+       const { loading, error, result } = state;
+       return { loading, error, result };
 }
 export default useFetch;
