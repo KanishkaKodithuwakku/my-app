@@ -4,17 +4,10 @@ import "./App.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-import ThemeProvider from "react-bootstrap/ThemeProvider";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ThemeProvider
-      breakpoints={["xxxl", "xxl", "xl", "lg", "md", "sm", "xs", "xxs"]}
-      minBreakpoint="xxs"
-    >
       <App />
-    </ThemeProvider>
   </React.StrictMode>
 );
 

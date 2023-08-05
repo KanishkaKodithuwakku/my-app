@@ -1,20 +1,24 @@
-import './App.css';
-import TopNavBar from './Navbar';
-import Vans from './Vans';
-import Container from "react-bootstrap/Container";
-
+import React, { useState } from "react";
+import "./App.css";
+import Layouts from "./components/Layouts";
+import NavigationBar from "./components/NavigationBar";
+import TitleBar from "./components/TitleBar";
+import Vans from "./components/Vans";
 
 function App() {
+const [category, setCategory] = useState(null);
+  
   return (
-    <Container>
-    
-        <TopNavBar/>
+    <>
+      <Layouts>
+        <TitleBar title={`Explorer Our Van Options`} />
 
-        <Vans />
-      
-    </Container>
+        <NavigationBar setCategory={setCategory} />
+
+        <Vans category={category} />
+      </Layouts>
+    </>
   );
 }
 
 export default App;
-
