@@ -1,1 +1,11 @@
-export const 
+export const VAN_ACTIONS = {
+  LOADING: "LOADING",
+  RESULT: "RESULT",
+  ERROR: "ERROR",
+};
+
+
+export const FILTER_ACTIONS = {
+  SELECTED_CATEGORY: "SELECTED_CATEGORY",
+  CLEAR_CATEGORY: "CLEAR_CATEGORY",
+};
