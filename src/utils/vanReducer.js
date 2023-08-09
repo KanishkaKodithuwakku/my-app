@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import { useReducer } from "react";
 import { VAN_ACTIONS } from "../constants/constant";
 
 
@@ -26,8 +26,8 @@ export const reducer = (state, action) => {
   }
 };
 
-export const VanReducer = () => {
+export const useVanReducer = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
-    return { state, dispatch };
+    return [state, dispatch];
 };
 

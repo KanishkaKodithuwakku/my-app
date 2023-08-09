@@ -1,7 +1,8 @@
-import { useEffect, useReducer } from "react";
+import { useEffect} from "react";
 import httpClient from "./httpClient";
-import { initialState, reducer } from "./vanReducer.js";
+import {useVanReducer } from "./vanReducer.js";
 import { VAN_ACTIONS } from "../constants/constant";
+
 /** 
  * With the useReducer hook, all three states are now handled 
  * within a single state, eliminating the need for separate 
@@ -10,7 +11,7 @@ import { VAN_ACTIONS } from "../constants/constant";
 
 const useFetch = (url) => {
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useVanReducer();
   // const [loading, setLoading] = useState(true);
   // const [error, setError] = useState(null);
   // const [result, setResult] = useState(null);
@@ -20,25 +21,25 @@ const useFetch = (url) => {
     dispatch({ type: VAN_ACTIONS.LOADING });
     const resultData = async () => {
       try {
-        const { data } = await httpClient.get(url);
-        console.log("VAN_ACTIONS.LOADING");
-        console.log(data);
-        
+        const { data} = await httpClient.get("/vans");
+        // console.log("VAN_ACTIONS.LOADING");
+        console.log("current running ", data);
+
         dispatch({ type: VAN_ACTIONS.RESULT, payload: { result: data } });
         //setResult(data);
       } catch ({ message }) {
-        dispatch(VAN_ACTIONS.ERROR, { payload: { message: message } });
+        dispatch({type:VAN_ACTIONS.ERROR, payload: { message: message } });
         // setError(messsage);
-      }// finally {
-        //setLoading(false);
-     // }
+      } // finally {
+      //setLoading(false);
+      // }
     };
     resultData();
-  }, [url])
+  }, [url, dispatch]);
 
   //console.log(state)
 
   const { loading, error, result } = state;
-       return { loading, error, result };
+       return [loading, error, result];
 }
 export default useFetch;
