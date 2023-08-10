@@ -3,7 +3,7 @@ import { FILTER_ACTIONS} from '../constants/constant';
 
 export const defaultFilterState = {
     loading: false,
-    selected: 0
+    selected: null
 }
 
 export const FilterReducer = (state, action) => { 
@@ -18,7 +18,7 @@ export const FilterReducer = (state, action) => {
       case FILTER_ACTIONS.CLEAR_CATEGORY:
         return {
           loading: false,
-          selected: '',
+          selected: null,
         };
       default:
         return state
@@ -28,5 +28,4 @@ export const FilterReducer = (state, action) => {
 export const useFilterReducerThunk = () => { 
   const [state, dispatch] = useReducer(FilterReducer, defaultFilterState);
   return [state, dispatch];
-
 }

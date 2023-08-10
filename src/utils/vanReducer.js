@@ -8,7 +8,7 @@ export const initialState = {
   error: null,
 };
 
-export const reducer = (state, action) => {
+export const VanReducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
     case VAN_ACTIONS.LOADING:
@@ -26,8 +26,8 @@ export const reducer = (state, action) => {
   }
 };
 
-export const useVanReducer = () => {
-    const [state, dispatch] = useReducer(reducer, initialState);
+export const useVanReducerThunk = () => {
+    const [state, dispatch] = useReducer(VanReducer, initialState);
     return [state, dispatch];
 };
 

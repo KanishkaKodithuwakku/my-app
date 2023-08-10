@@ -10,18 +10,17 @@ import Alert from "./components/Alert";
 import { useFilterReducerThunk } from "./utils/filterReducer.js";
 
 function App() {
-  const [state, dispatch] = useFilterReducerThunk();
+
   const [loading, error, result] = useFetch("/vans");
+  const [state, dispatch] = useFilterReducerThunk();
 
-
-console.log('current state ',state);
-
+  console.log('current state ',state);
 
    if (loading) return <Spinner />;
    if (error) return <Alert />;
    const vans = result
      ? result.filter(
-         (van) => state.selected === 0 || van.category === state.selected
+         (van) => state.selected === null || van.category === state.selected
        )
      : null;
 
@@ -31,7 +30,7 @@ console.log('current state ',state);
       <Layouts>
         <TitleBar title={`Explorer Our Van Options`} />
 
-        <NavigationBar />
+        <NavigationBar dispatch={dispatch} />
 
         <Vans collection={vans} />
       </Layouts>

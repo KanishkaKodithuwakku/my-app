@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
 import Button from "./Button";
-import { useFilterReducerThunk } from "../utils/filterReducer";
 import { FILTER_ACTIONS } from '../constants/constant';
-const NavigationBar = ({ setCategory }) => {
-
-  const [state,dispatch] = useFilterReducerThunk();
-
+const NavigationBar = ({ setCategory, dispatch }) => {
   return (
     <div style={{ borderBottom: "1px solid #DDD", paddingBottom: "12px" }}>
       <Button
@@ -43,8 +39,7 @@ const NavigationBar = ({ setCategory }) => {
         btnType={`default`}
         handleOnClick={() =>
           dispatch({
-            type: FILTER_ACTIONS.SELECTED_CATEGORY,
-            payload: { category: 0 },
+            type: FILTER_ACTIONS.CLEAR_CATEGORY
           })
         }
       />

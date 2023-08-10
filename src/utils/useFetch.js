@@ -1,6 +1,6 @@
 import { useEffect} from "react";
 import httpClient from "./httpClient";
-import {useVanReducer } from "./vanReducer.js";
+import { useVanReducerThunk } from "./vanReducer.js";
 import { VAN_ACTIONS } from "../constants/constant";
 
 /** 
@@ -11,7 +11,7 @@ import { VAN_ACTIONS } from "../constants/constant";
 
 const useFetch = (url) => {
 
-  const [state, dispatch] = useVanReducer();
+  const [state, dispatch] = useVanReducerThunk();
   // const [loading, setLoading] = useState(true);
   // const [error, setError] = useState(null);
   // const [result, setResult] = useState(null);
