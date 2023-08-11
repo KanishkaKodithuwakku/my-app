@@ -12,7 +12,7 @@ const Vans = ({ category, collection: vans}) => {
         {vans &&
           vans.map((van) => (
             <div className="col-md-3" key={van.id}>
-              <Card {...vans} />
+              <Card {...van} />
             </div>
           ))}
       </div>
